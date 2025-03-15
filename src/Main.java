@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
 
     public static class Employee {
-        // asd123
+        // Çalışanın bilgilerini tutuyoruz
         public String name;
         public double salary;
         public int workHours;
@@ -16,7 +16,7 @@ public class Main {
             this.hireYear = hireYear;
 
         }
-
+         // vergi hesaplama methodu
         public double tax(){
             if (salary < 1000) {
                 return 0;
@@ -24,13 +24,14 @@ public class Main {
                 return salary * 0.03;
             }
         }
+        // bonus hesaplama methodu
         public double bonus() {
             if (workHours > 40){
                 return (workHours - 40) * 30;
             }
             return 0;
         }
-
+        // maaş artışı hesaplama methodu
         public double raiseSalary() {
             int yearsWorked = 2021 - hireYear ;
             if (yearsWorked < 10) {
@@ -41,6 +42,7 @@ public class Main {
                 return salary * 0.15;
             }
         }
+        // çalışan bilgilerini ekrana yazdıran method
         public String toString() {
             double tax = tax();
             double bonus = bonus();
@@ -62,7 +64,7 @@ public class Main {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
 
-            // Kullanıcıdan giriş almak
+            // kullanıcıdan bilgiler alınır
             System.out.print("Çalışanın adı: ");
             String name = scanner.nextLine();
 
@@ -75,9 +77,10 @@ public class Main {
             System.out.print("İşe başlama yılı: ");
             int hireYear = scanner.nextInt();
 
-            // Employee nesnesi oluşturuluyor
             Employee emp = new Employee(name, salary, workHours, hireYear);
 
+            // kullanıcının bilgileri ekrana yazdırılır
             System.out.println(emp.toString());
         }
     }
+}
